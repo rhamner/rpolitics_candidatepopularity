@@ -9,6 +9,8 @@ reddit = praw.Reddit(client_id='*',
                      user_agent='*',
                      username='*')
 
+
+
 num = 0						#number of posts					
 dailyFile = open('C:\Temp\candidatesDaily.txt', 'w')
 dailyFile.write("time\tTrump\tClinton\tCruz\tSanders\tRubio\tBush\tCarson\tKasich\n")
@@ -28,11 +30,13 @@ while(start > 1431648000):
 		num = num + 1
 		print(num)
 		try:
+			
+			#match names; for donald, hillary, bernie, marco, and jeb, include first names as they're often used; ben, john, and ted are too common and not often used so ignore
 			if((lowerTitle.find('donald') >= 0) or (lowerTitle.find('trump') >= 0)):
 				trump = trump + 1
 			if((lowerTitle.find('hillary') >= 0) or (lowerTitle.find('clinton') >= 0)):
 				clinton = clinton+ 1
-			if((lowerTitle.find('ted') >= 0) or (lowerTitle.find('cruz') >= 0)):
+			if((lowerTitle.find('cruz') >= 0)):
 				cruz = cruz + 1
 			if((lowerTitle.find('bernie') >= 0) or (lowerTitle.find('sanders') >= 0)):
 				sanders = sanders + 1
